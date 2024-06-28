@@ -32,6 +32,11 @@ class UnknownActivationFunctionException(Exception):
         super().__init__(*args)
 
 
+class MismatchedDataSizeException(Exception):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
+
+
 class TwoLayeredPerceptron:
     DEFAULT_NEURON_CAOUNT = 10
 
@@ -88,4 +93,20 @@ class TwoLayeredPerceptron:
             self.layers[0][neuron_num] = [self.layers[0][neuron_num][0] - learning_rate * neuron_error * self.last_x]
 
     def feed(self, x: list[float], y: list[float]) -> None:
-        pass
+        def shuffle_samples(x: list[float], y: list[float]) -> tuple[list[float, list[float]]]:
+            pairs = list(zip(x, y))
+            random.shuffle(pairs)
+            x_train, y_train = zip(*pairs)
+            x_train = list(x_train)
+            y_train = list(y_train)
+            return x_train, y_train
+
+        if len(x) != len(y):
+            raise MismatchedDataSizeException("Input and output have different sizes")
+
+        x_train, y_train = shuffle_samples(x, y)
+
+        y_predicted: float
+        for i in range(len(x_train)):
+            y_predicted = self.feed_forward(x_train[i])
+            self.propagate_error(y_train[i], y_predicted)
