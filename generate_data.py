@@ -5,8 +5,8 @@ import numpy as np
 
 
 DEFAULT_SAMPLES_COUNT = 10000
-SAMPLE_MIN = -1_000
-SAMPLE_MAX = 1_000
+SAMPLE_MIN = -np.pi
+SAMPLE_MAX = np.pi
 
 WORKING_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), ".."))
 DATA_DIR = f"{WORKING_DIR}/data"
@@ -14,8 +14,11 @@ DATA_DIR = f"{WORKING_DIR}/data"
 SEPARATOR = "\t"
 
 
+# def target_func(x: float) -> float:
+#     return np.sin(2 * np.pi * x) + np.sin(5 * np.pi * x)
+
 def target_func(x: float) -> float:
-    return np.sin(2 * np.pi * x) + np.sin(5 * np.pi * x)
+    return np.sin(x)
 
 
 def generate_sample_args(samples_count) -> set:
