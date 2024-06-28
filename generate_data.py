@@ -5,8 +5,8 @@ import numpy as np
 
 
 DEFAULT_SAMPLES_COUNT = 10000
-SAMPLE_MIN = -1_000_000_000
-SAMPLE_MAX = 1_000_000_000
+SAMPLE_MIN = -1_000
+SAMPLE_MAX = 1_000
 
 WORKING_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), ".."))
 DATA_DIR = f"{WORKING_DIR}/data"
