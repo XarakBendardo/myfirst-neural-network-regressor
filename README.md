@@ -4,7 +4,7 @@ This is a simple implementation of two-layered perceptron regressor
 
 ## Data
 - data are 10000 random numbers from range `[-π, π]`
-- data were generated with `generate_data.py` script
+- data was generated with `generate_data.py` script
 - size of the test set: `0.2`
 - the target function is `sin(x)`
 
