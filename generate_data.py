@@ -10,6 +10,7 @@ SAMPLE_MAX = np.pi
 
 WORKING_DIR = os.path.abspath(os.path.join(os.path.abspath(__file__), ".."))
 DATA_DIR = f"{WORKING_DIR}/data"
+CHARTS_DIR = f"{WORKING_DIR}/charts"
 
 SEPARATOR = "\t"
 
